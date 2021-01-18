@@ -2,12 +2,15 @@
  * @author chuzhixin 1204505056@qq.com （不想保留author可删除）
  * @description cli配置
  */
+/*
 
-//vue cli4        https://github.com/staven630/vue-cli4-config
-//vue cli3        https://github.com/staven630/vue-cli4-config/tree/vue-cli3
-//vue.config.js   https://cli.vuejs.org/zh/config/#runtimecompiler
-//webpack         https://webpack.js.org/configuration/dev-server/#devservernoinfo-
-//webpackbar      https://www.npmjs.com/package/webpackbar    （个人理解应该是单页面加载的进度条）
+vue cli4        https://github.com/staven630/vue-cli4-config
+vue cli3        https://github.com/staven630/vue-cli4-config/tree/vue-cli3
+vue.config.js   https://cli.vuejs.org/zh/config/#runtimecompiler
+webpack         https://webpack.js.org/configuration/dev-server/#devservernoinfo-
+webpackbar      https://www.npmjs.com/package/webpackbar    （个人理解应该是单页面加载的进度条）
+
+ */
 const path = require('path')
 const {//引入部分配置变量
   publicPath,// 公共路径(必须有的)
@@ -86,7 +89,7 @@ module.exports = {
       ],
     }
   },
-  chainWebpack(config) {
+  chainWebpack(config) {//这个库提供了一个 webpack 原始配置的上层抽象，使其可以定义具名的 loader 规则和具名插件，并有机会在后期进入这些规则并对它们的选项进行修改。
     config.plugins.delete('preload')
     config.plugins.delete('prefetch')
     config.module
@@ -118,7 +121,7 @@ module.exports = {
     /*  config.when(process.env.NODE_ENV === "development", (config) => {
       config.devtool("source-map");
     }); */
-    config.when(process.env.NODE_ENV !== 'development', (config) => {
+    config.when(process.env.NODE_ENV !== 'development', (config) => {// 为开发环境修改配置...
       config.performance.set('hints', false)
       config.devtool('none')
       config.optimization.splitChunks({
@@ -157,7 +160,7 @@ module.exports = {
     })
 
     if (build7z) {
-      config.when(process.env.NODE_ENV === 'production', (config) => {
+      config.when(process.env.NODE_ENV === 'production',  (config) => { // 为生产环境修改配置...  npm run build时是否自动生成7z压缩包
         config
           .plugin('fileManager')
           .use(FileManagerPlugin, [
@@ -180,11 +183,12 @@ module.exports = {
   runtimeCompiler: true,// 是否使用包含运行时编译器的 Vue 构建版本
   productionSourceMap: false,// 是否为生产环境构建生成 source map
   css: {
-    requireModuleExtension: true,
-    sourceMap: true,
-    loaderOptions: {
+    //extract: true,// 是否使用css分离插件 ExtractTextPlugin
+    requireModuleExtension: true,// 启用 CSS modules for all css / pre-processor files.
+    sourceMap: true,// 开启 CSS source maps
+    loaderOptions: {// css预设器配置
       scss: {
-        /*sass-loader 8.0语法 */
+        /*sass-loader 8.0语法pai'zhi */
         //prependData: '@import "~@/styles/variables.scss";',
 
         /*sass-loader 9.0写法，感谢github用户 shaonialife*/
