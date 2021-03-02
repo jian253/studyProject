@@ -5,9 +5,9 @@
 
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Layout from '@/layouts'
+import Layout from '@/layouts' //引入所有模块
 import EmptyLayout from '@/layouts/EmptyLayout'
-import { publicPath, routerMode } from '@/config'
+import { publicPath, routerMode } from '@/config' //全局参数配置
 
 Vue.use(VueRouter)
 export const constantRoutes = [
@@ -392,6 +392,7 @@ VueRouter.prototype.push = function push(location, onResolve, onReject) {
   return originalPush.call(this, location).catch((err) => err)
 }
 
+//写一个重置路由的方法，切换用户后，或者退出时清除动态加载的路由
 export function resetRouter() {
   router.matcher = new VueRouter({
     base: publicPath,

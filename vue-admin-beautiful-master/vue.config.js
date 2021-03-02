@@ -9,6 +9,7 @@ vue cli3        https://github.com/staven630/vue-cli4-config/tree/vue-cli3
 vue.config.js   https://cli.vuejs.org/zh/config/#runtimecompiler
 webpack         https://webpack.js.org/configuration/dev-server/#devservernoinfo-
 webpackbar      https://www.npmjs.com/package/webpackbar    （个人理解应该是单页面加载的进度条）
+ESLint          https://www.cnblogs.com/super86/p/6994813.html
 
  */
 const path = require('path')
@@ -62,7 +63,7 @@ module.exports = {
       }
     },
     hot: true,//单纯设置hot为true的时候，如果编译报错，会抛出错误，你重新改成正确的，这个时候又会触发重新编译，整个浏览器会重新刷新！
-    hotOnly: true,//在设置了hot:true，再将这个也设置为true的话，如果编译报错，你再改成正确的，重新编译，浏览器不会刷新！
+    hotOnly: true,//在设置了hot:true，再将这个也设置为true的话，如果编译报错，你再改成正确的，重新编译，浏览器不会刷新！ （ 热更新）
     port: devPort,//端口
     open: true,// 是否打开浏览器
     noInfo: false,//告诉开发服务器禁止显示诸如Webpack捆绑包信息之类的消息。错误和警告仍将显示。

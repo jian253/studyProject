@@ -3,6 +3,7 @@ import App from './App'
 import store from './store'
 import router from './router'
 import './plugins'
+/*组件注册安装*/
 import '@/layouts/export'
 /**
  * @author chuzhixin 1204505056@qq.com （不想保留author可删除）

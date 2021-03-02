@@ -72,7 +72,13 @@
     </el-row>
   </div>
 </template>
-
+<!--页面学习总结-->
+<!--
+v-model的修饰符
+v-model.lazy 只有在input输入框发生一个blur时才触发
+v-model.trim 将用户输入的前后的空格去掉
+v-model.number 将用户输入的字符串转换成number
+-->
 <script>
   import { isPassword } from '@/utils/validate'
 

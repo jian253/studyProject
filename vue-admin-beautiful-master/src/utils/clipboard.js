@@ -1,4 +1,5 @@
 import Vue from 'vue'
+//是一款轻量级的实现复制文本到剪贴板功能的JavaScript插件。通过该插件可以将输入框，文本域，DIV元素中的文本等文本内容复制到剪贴板中
 import Clipboard from 'clipboard'
 
 function clipboardSuccess() {

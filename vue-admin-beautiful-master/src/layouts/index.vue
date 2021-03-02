@@ -8,6 +8,7 @@
         'no-tabs-bar': tabsBar === 'false' || tabsBar === false,
       }"
     >
+      <!--右侧头部-->
       <div :class="header === 'fixed' ? 'fixed-header' : ''">
         <vab-top-bar />
         <div
@@ -19,6 +20,7 @@
           </div>
         </div>
       </div>
+      <!--右侧内容-->
       <div class="vab-main main-padding">
         <vab-ad />
         <vab-app-main />
